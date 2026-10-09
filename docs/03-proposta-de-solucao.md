@@ -1,3 +1,4 @@
+
 # 03 — Proposta de Solução
 
 > **Objetivo deste documento:** apresentar a solução tecnológica proposta pela equipe e mostrar como ela se relaciona com o problema e as evidências levantadas.
@@ -10,60 +11,72 @@
 
 ## Nome da solução
 
+Rec Science
+
 ## Resumo
 
-_Explique a solução em até 5 linhas: o que é, para quem é e qual problema resolve._
+Plataforma pública que reúne pesquisas e projetos desenvolvidos por instituições do Recife em um único catálogo. O usuário poderá pesquisar e filtrar projetos por área, instituição, tipo de projeto e ODS. Cada projeto terá informações apresentadas de forma clara, além da opção de solicitar contato com os pesquisadores responsáveis. A plataforma busca dar mais visibilidade às pesquisas e facilitar a criação de parcerias.
 
 ## Público-alvo
 
-_Quem será beneficiado pela solução?_
+Pesquisadores, instituições de ensino e pesquisa, empresas privadas, órgãos públicos, empreendedores, investidores e cidadãos interessados em inovação.
 
 ## Usuários
 
-_Quem vai utilizar o sistema diretamente? (Pode ser diferente do público-alvo.)_
-
 | Tipo de usuário | O que faz no sistema? |
 |---|---|
-| | |
+| Usuário público / empresa / órgão público | Pesquisa projetos, consulta perfis e solicita contato. |
+| Pesquisador | Cadastra e atualiza seus projetos e responde a pedidos de contato. |
+| Instituição | Fornece e valida os dados dos seus projetos. |
+| Curador (Comitê de inovação) | Analisa os projetos antes da publicação e ajuda a deixar as informações mais claras. |
+| Gestor da plataforma | Acompanha o funcionamento da plataforma e seus resultados. |
 
 ## Proposta de valor
 
-_Por que a solução é útil? O que ela melhora em relação à situação atual?_
+Hoje, as pesquisas locais estão espalhadas em diferentes lugares e muitas vezes são apresentadas com uma linguagem difícil de entender. O Hub reúne essas pesquisas em um só lugar, apresenta as informações de forma mais clara e facilita o contato entre pesquisadores e pessoas ou organizações interessadas.
 
 ## Fluxo principal
 
-_Descreva o caminho principal que o usuário percorre para obter o resultado esperado._
-
-Representação genérica (adapte para a solução da equipe):
-
 ```text
-Usuário
-   ↓
-Interface
-   ↓
-Sistema
-   ↓
-Processamento
-   ↓
-Resultado
+Pesquisador cadastra projeto
+    ↓
+Curadoria valida e adapta
+    ↓
+Projeto é publicado
+    ↓
+Empresa/órgão público pesquisa e filtra
+    ↓
+Abre o perfil do projeto
+    ↓
+Solicita contato
+    ↓
+Sistema registra o pedido e notifica o pesquisador
+    ↓
+Conexão qualificada contabilizada nos indicadores
 ```
 
 ## Funcionalidades essenciais
 
-_Funcionalidades sem as quais a solução não resolve o problema. Prioridade: Alta, Média ou Baixa._
-
 | ID | Funcionalidade | Problema que ajuda a resolver | Prioridade |
 |---|---|---|---|
-| F01 | | | Alta |
-| F02 | | | |
-| F03 | | | |
+| F01 | Catálogo público com busca por palavra-chave | Falta de centralização e visibilidade | Alta |
+| F02 | Filtros por área, instituição, tipo de projeto e ODS | Dificuldade de encontrar pesquisas relevantes | Alta |
+| F03 | Perfil padronizado do projeto (resumo acessível, objetivos, aplicações, instituição) | Barreira de linguagem técnica | Alta |
+| F04 | Cadastro e atualização de projetos pelo pesquisador | Dados dispersos e desatualizados | Alta |
+| F05 | Análise dos projetos antes da publicação | Garantir a qualidade das informações | Alta |
+| F06 | Solicitação de contato com o pesquisador, com registro | Ausência de canal de conexão | Alta |
+| F07 | Autenticação e perfis de acesso | Proteção das áreas restritas | Alta |
+| F08 | Notificação por e-mail em segundo plano | Pesquisador não saber do pedido | Alta |
 
 ## Funcionalidades futuras
 
-_Funcionalidades desejáveis, mas que não são essenciais neste momento._
-
--
+- Integração com Lattes e ORCID para importar informações dos pesquisadores.
+- Recomendação de pesquisas de acordo com os interesses de empresas e órgãos públicos.
+- Divulgação de eventos e hackathons, com possibilidade de inscrição.
+- Painel público com informações sobre os contatos e parcerias gerados pela plataforma.
+- Relatórios sobre o uso e os resultados da plataforma.
+- Indicadores de conexões qualificadas.
 
 ## Diferencial
 
-_O que diferencia esta proposta das soluções existentes pesquisadas?_
+Diferente de plataformas como Lattes e ORCID, que são voltadas principalmente para informações sobre pesquisadores e suas produções, o Hub busca aproximar as pesquisas de quem pode utilizá-las. Os projetos são reunidos em um só lugar, apresentados de forma mais simples e organizados para facilitar a busca e o contato com os pesquisadores responsáveis.
