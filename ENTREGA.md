@@ -31,7 +31,7 @@
 
 ## Entrega AV1
 
-- Tag/Release: `v1.0-av1` (a criar)
+- Tag/Release: `v1.0-av1`
 - Data: 09/10/2026.
 
 > Tag esperada: `v1.0-av1`
