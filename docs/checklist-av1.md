@@ -27,7 +27,7 @@
 
 ## Entrega
 
-- [ ] `ENTREGA.md` preenchido.
+- [x] `ENTREGA.md` preenchido.
 
 ## Documentos relacionados
 
