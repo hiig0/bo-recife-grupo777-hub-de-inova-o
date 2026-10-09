@@ -20,7 +20,7 @@ Projeto Integrador do curso de **Análise e Desenvolvimento de Sistemas**, desen
 | Carla Rayanne da Silva | [CarlaSilva](https://github.com/CarlaSilva-Dev) |
 | Gustavo Lopes de Lima | [gustavolopeslima](https://github.com/gustavolopeslima) |
 | Higor Ricardo da Silva | [hiig0](https://github.com/hiig0) |
-| Emilly Mayra do Santos Silva | A informar |
+| Emilly Mayra do Santos Silva | [EmillyMayra](https://github.com/EmillyMayra) |
 
 ## Visão geral
 
@@ -85,6 +85,24 @@ A solução foi planejada como um **monólito modular**, com uma interface web r
 [**Acessar o protótipo no Figma**](https://www.figma.com/design/3QOYNbl0Jwc72Y3NQvX92X/Untitled?node-id=0-1&t=af7AH4OgNlfhMWEu-1)
 
 O fluxo navegável mínimo previsto é: **página inicial → busca com filtros → perfil do projeto → solicitação de contato → confirmação**.
+## Protótipo do Rec Science
+
+O protótipo apresenta as principais telas planejadas para a plataforma, demonstrando a navegação e as funcionalidades propostas.
+
+### Login e cadastro
+![Telas de login e cadastro](assets/prototipo-login-cadastro.png)
+
+### Catálogo e perfil do projeto
+![Catálogo de pesquisas e perfil do projeto](assets/prototipo-catalogo-projeto.png)
+
+### Solicitação de contato e mensagens
+![Solicitação de contato e mensagens](assets/prototipo-contato-mensagens.png)
+
+### Perfil do pesquisador e curadoria
+![Perfil do pesquisador e área de curadoria](assets/prototipo-perfil-curadoria.png)
+
+### Protótipo navegável
+[Visualizar no Figma](https://www.figma.com/design/3QOYNbl0Jwc72Y3NQvX92X/Untitled?node-id=0-1)
 
 ## Documentação
 
