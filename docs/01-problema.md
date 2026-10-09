@@ -1,59 +1,60 @@
-# 01 — Problema
+01 — Problema
 
-> **Objetivo deste documento:** descrever com clareza o problema real escolhido no Banco de Oportunidades (BO) e delimitar qual parte dele será tratada pela equipe.
->
-> **Avaliação:** AV1
->
-> **Como preencher:** substitua as orientações em itálico pelo texto da equipe. Seja específico: evite frases genéricas como "o sistema vai melhorar a vida das pessoas".
+Objetivo deste documento: descrever com clareza o problema real escolhido no Banco de Oportunidades (BO) e delimitar qual parte dele será tratada pela equipe.
 
----
+Avaliação: AV1
 
-## BO selecionado
+Como preencher: substitua as orientações em itálico pelo texto da equipe. Seja específico: evite frases genéricas como "o sistema vai melhorar a vida das pessoas".
 
-- **Título do BO:**
-- **URL:**
-- **Área temática:**
-- **Órgão/secretaria responsável (se informado):**
+BO selecionado
+Título do BO: Hub de Inovação e Pesquisa de Recife
+URL: https://bancodeoportunidades.recife.pe.gov.br/
+Área temática: inovação e pesquisa
+Órgão/secretaria responsável (se informado): Prefeitura do Recife
+Descrição do problema
 
-## Descrição do problema
+Recife é um polo de ensino e pesquisa, com universidades, institutos federais e centros de inovação, além de ser sede do Porto Digital. Apesar disso, o que essas instituições produzem fica restrito aos seus próprios ambientes. Quem poderia usar ou financiar essas soluções (gestores públicos, empresas, patrocinadores e empreendedores) não tem um lugar central para encontrá-las, entendê-las e falar com os pesquisadores.
 
-_Explique, com as palavras da equipe, qual é o problema apresentado no BO. Não copie apenas o texto do site: mostre que o grupo compreendeu a situação._
+O problema, portanto, não é falta de pesquisa. É falta de visibilidade, centralização e linguagem acessível, o que impede que o conhecimento local vire solução e parceria.
 
-## Delimitação
+Delimitação
 
-_O problema do BO costuma ser amplo. Qual recorte a equipe vai atacar? O que fica de fora?_
+Parte do problema que será tratada:
 
-- **Parte do problema que será tratada:**
-- **Parte do problema que NÃO será tratada:**
+Catálogo online público de pesquisas e projetos das instituições parceiras.
+Perfil padronizado do projeto, com resumo em linguagem acessível, objetivos e potenciais aplicações.
+Curadoria antes da publicação.
+Solicitação de contato com os pesquisadores e registro desses pedidos no sistema.
 
-## Quem é afetado
+Parte do problema que NÃO será tratada:
 
-_Identifique os grupos de pessoas ou instituições afetados pelo problema (cidadãos, servidores, empresas, bairros específicos etc.)._
+Integração automática com Lattes/ORCID (a carga de dados será manual no MVP).
+Recomendação automática de pesquisas.
+Financiamento, contratos ou negociação entre as partes (o Hub só facilita o contato).
+Painel público de indicadores e BI.
+Quem é afetado
+Grupo afetado	Como é afetado?Pesquisadores e acadêmicos	Têm pouca visibilidade e dificuldade para encontrar parceiros e aplicações
+Instituições de ensino e pesquisa	Sua produção científica e tecnológica fica pouco conhecida fora do meio acadêmico
+Empresas privadas	Não sabem onde buscar soluções já pesquisadas localmente
+Órgãos públicos	Têm desafios públicos, mas não encontram o conhecimento local que ajudaria
+Cidadãos	Não conhecem a produção de inovação da própria cidade
+Onde acontece
 
-| Grupo afetado | Como é afetado? |
-|---|---|
-| | |
+No ecossistema de pesquisa e inovação do Recife: UFPE, UPE, IFPE, CESAR School e NERD (Núcleo de Empreendedorismo e Residência Digital do Porto Digital), e na relação dessas instituições com o poder público e o setor privado.
 
-## Onde acontece
+Importância
 
-_Em que local, território, serviço ou processo o problema ocorre?_
+Aproximar quem produz de quem pode aplicar o conhecimento aumenta a chance de pesquisas locais virarem soluções para a cidade, de gestores terem apoio técnico para decisões e de surgirem parcerias e novos negócios. O Hub também funciona como vitrine da capacidade de inovação do Recife.
 
-## Importância
+Consequências
+Se o problema continuar: pesquisas relevantes seguem pouco conhecidas;
+Gestores e empresas contratam soluções fora da cidade, ou nenhuma;
+Pesquisadores perdem parcerias e financiamento;
+O potencial do polo de inovação fica subaproveitado.
+Pergunta central
 
-_Por que vale a pena resolver este problema? Qual a relevância para a cidade e para as pessoas?_
+A pergunta central orienta todo o projeto. Ela deve ser específica e indicar quem será beneficiado e o que se pretende melhorar.
 
-## Consequências
+Exemplo de estrutura (não é resposta): "Como poderíamos [ação] para [público] de modo que [resultado esperado]?"
 
-_O que acontece se o problema continuar sem solução?_
-
--
--
--
-
-## Pergunta central
-
-> A pergunta central orienta todo o projeto. Ela deve ser específica e indicar **quem** será beneficiado e **o que** se pretende melhorar.
->
-> **Exemplo de estrutura (não é resposta):** "Como poderíamos _[ação]_ para _[público]_ de modo que _[resultado esperado]_?"
-
-Como poderíamos _________________________________________________?
+Como poderíamos reunir, em um catálogo público e em linguagem acessível, as pesquisas e projetos das instituições de Recife para que gestores públicos, empresas e empreendedores consigam encontrá-los e entrar em contato com os pesquisadores responsáveis?
