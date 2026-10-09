@@ -1,358 +1,140 @@
-# Projeto Integrador — Banco de Oportunidades do Recife
+# Hub de Inovação e Pesquisa de Recife
 
-Este repositório é o **modelo inicial** do Projeto Integrador da disciplina de Análise e Desenvolvimento de Sistemas.
+Projeto Integrador do curso de **Análise e Desenvolvimento de Sistemas**, desenvolvido a partir de um desafio do [Banco de Oportunidades da Prefeitura do Recife](https://bancodeoportunidades.recife.pe.gov.br/).
 
-Cada grupo deverá selecionar um **problema real** publicado no **Banco de Oportunidades (BO) da Prefeitura do Recife**, investigar esse problema, propor uma **solução tecnológica** (1ª Avaliação) e, em seguida, desenvolver um **MVP funcional** (2ª Avaliação).
-
-🔗 **Banco de Oportunidades:** <https://bancodeoportunidades.recife.pe.gov.br/>
-
-> **Atenção:** este README deve ser preenchido e mantido atualizado pelo grupo. Substitua os campos vazios pelas informações da equipe.
-
----
+> **Situação do projeto:** AV1 em andamento; AV2 não iniciada. O desenvolvimento do MVP será realizado na segunda avaliação.
 
 ## Identificação da equipe
 
-- Turma:
-- Grupo:
-- Nome do projeto:
-- BO escolhido:
-- Link do BO:
+- **Turma:** 5NA
+- **Grupo:** REC SCIENCE
+- **Nome do projeto:** REC SCIENCE
+- **BO escolhido:** Hub de Inovação e Pesquisa de Recife
+- **Link do BO:** https://bancodeoportunidades.recife.pe.gov.br/
 
 ### Integrantes
 
 | Nome | GitHub |
 |---|---|
-| | |
-| | |
-| | |
+| Arnaldo Reis Leal Neto | [Arnaldoreisl](https://github.com/Arnaldoreisl) |
+| Carla Rayanne da Silva | [CarlaSilva](https://github.com/CarlaSilva-Dev) |
+| Gustavo Lopes de Lima | [gustavolopeslima](https://github.com/gustavolopeslima) |
+| Higor Ricardo da Silva | [hiig0](https://github.com/hiig0) |
+| Emilly Mayra do Santos Silva | A informar |
 
----
+## Visão geral
 
-## Critério central do projeto
+Recife reúne universidades, institutos federais e centros de inovação que produzem pesquisas e projetos relevantes. Entretanto, essas informações ficam distribuídas entre diferentes sites e instituições, dificultando que gestores públicos, empresas, empreendedores e cidadãos encontrem e compreendam possíveis soluções.
 
-> **Não estamos procurando o projeto tecnicamente mais complexo.**
->
-> **Estamos procurando uma solução em que seja possível demonstrar claramente a relação:**
+O **Hub de Inovação e Pesquisa de Recife** propõe uma plataforma pública para reunir pesquisas e projetos em um catálogo pesquisável, com filtros por área do conhecimento, instituição, tipo de projeto e Objetivos de Desenvolvimento Sustentável (ODS). Cada projeto terá uma apresentação padronizada e acessível, além de um mecanismo para solicitar contato com os pesquisadores responsáveis.
 
-```text
-PROBLEMA
-   ↓
-EVIDÊNCIA
-   ↓
-SOLUÇÃO
-   ↓
-IMPLEMENTAÇÃO
-   ↓
-TESTE
-   ↓
-RESULTADO
-```
+## Problema e proposta de solução
 
----
+**Problema:** a produção científica e tecnológica local tem pouca centralização e visibilidade fora do meio acadêmico. A linguagem técnica e a ausência de um canal organizado de contato dificultam possíveis parcerias e aplicações práticas.
 
-## Fluxo do projeto
+**Solução:** disponibilizar um catálogo público de pesquisas e projetos das instituições participantes, com informações padronizadas, curadoria antes da publicação e registro das solicitações de contato.
 
-| Etapa | Pergunta central | Resultado |
-|---|---|---|
-| Escolha do BO | Qual problema real queremos resolver? | BO selecionado |
-| Investigação | Por que esse problema existe e quem é afetado? | Diagnóstico |
-| **1ª Avaliação** | **O que propomos e por que funcionaria?** | **Projeto da solução** |
-| Desenvolvimento | Como transformar a proposta em software? | MVP |
-| Testes | A solução realmente atende ao problema? | Evidências |
-| **2ª Avaliação** | **A solução funciona na prática?** | **MVP funcional + demonstração** |
+**Público-alvo:** pesquisadores, instituições de ensino e pesquisa, empresas, órgãos públicos, empreendedores, investidores e cidadãos interessados em inovação.
+
+### Fluxo principal previsto
 
 ```text
-PROBLEMA REAL
-      ↓
-INVESTIGAÇÃO
-      ↓
-EVIDÊNCIAS
-      ↓
-PROPOSTA
-      ↓
-PROTÓTIPO
-      ↓
-AV1
-      ↓
-DESENVOLVIMENTO
-      ↓
-TESTES
-      ↓
-VALIDAÇÃO
-      ↓
-MVP FUNCIONAL
-      ↓
-AV2
+Pesquisador cadastra um projeto
+        ↓
+Curador analisa e aprova a publicação
+        ↓
+Interessado pesquisa e filtra os projetos
+        ↓
+Interessado consulta o perfil do projeto
+        ↓
+Interessado solicita contato
+        ↓
+Sistema registra a solicitação para o pesquisador responsável
 ```
 
-### Regra principal: não comece programando
+## Funcionalidades do MVP
 
-Antes de escrever código, o grupo deve compreender:
+- Catálogo público com pesquisa por palavras-chave.
+- Filtros por área do conhecimento, instituição, tipo de projeto e ODS.
+- Perfil padronizado dos projetos, com resumo acessível, objetivos, aplicações e instituição responsável.
+- Cadastro e atualização de projetos por pesquisadores.
+- Análise e aprovação dos projetos antes da publicação (curadoria).
+- Solicitação de contato com o pesquisador, com registro no sistema.
+- Autenticação e controle de acesso conforme o perfil do usuário.
 
-- qual é o problema;
-- quem é afetado;
-- por que o problema acontece;
-- quais evidências existem;
-- como o problema é tratado atualmente;
-- qual parte do problema será atacada;
-- qual solução tecnológica será proposta.
+**Fora do escopo inicial:** importação automática de dados do Lattes/ORCID, recomendação automática de pesquisas, negociação ou financiamento pela plataforma e painel público de BI. Notificações por e-mail e indicadores básicos poderão ser incluídos se houver tempo.
 
-Na **AV1**, a equipe apresenta o **projeto da solução**. Na **AV2**, a equipe apresenta a **solução funcionando**.
+## Arquitetura e tecnologias previstas
 
----
+A solução foi planejada como um **monólito modular**, com uma interface web responsiva, comunicação por **API HTTP/REST** e persistência em **PostgreSQL**.
 
-# Como começar
-
-Cada equipe deve possuir **seu próprio repositório**, criado a partir deste modelo.
-
-## Opção recomendada — Template Repository
-
-1. Abra o repositório-base do professor: <https://github.com/jamcabral/template-bo-recife>
-2. Clique no botão **`Use this template`**.
-3. Selecione **`Create a new repository`**.
-4. Crie um repositório próprio para o grupo (um integrante cria e adiciona os demais como colaboradores em **Settings → Collaborators**).
-5. Utilize um nome no padrão:
-
-   ```text
-   bo-recife-grupoXX-nome-projeto
-   ```
-
-   Exemplo de formato: `bo-recife-grupo03-agenda-saude` (substitua pelo número e nome do seu grupo).
-
-6. Clone o novo repositório:
-
-   ```bash
-   git clone URL_DO_REPOSITORIO_DO_GRUPO
-   ```
-
-7. Entre na pasta:
-
-   ```bash
-   cd bo-recife-grupoXX-nome-projeto
-   ```
-
-8. Comece preenchendo este `README.md` e os arquivos da pasta [`docs/`](docs/).
-
-## Alternativa — Clone manual
-
-Caso o professor determine a clonagem manual, o grupo deverá clonar o repositório-base e, em seguida, trocar o `origin` para o repositório próprio do grupo (criado vazio no GitHub):
-
-```bash
-git clone URL_DO_REPOSITORIO_BASE
-cd template-bo-recife
-git remote remove origin
-git remote add origin URL_DO_REPOSITORIO_DO_GRUPO
-git push -u origin main
-```
-
-> ⚠️ **Os grupos não devem enviar seu trabalho para o repositório-base do professor.**
-> Cada equipe deverá possuir seu próprio repositório.
-
----
-
-## Estrutura do repositório
-
-```text
-.
-├── README.md             → identificação da equipe e visão geral do projeto
-├── ENTREGA.md            → links e versões entregues em cada avaliação
-├── CONTRIBUTING.md       → regras de colaboração, commits e segurança
-├── LICENSE               → licença do projeto
-├── docs/                 → documentação do projeto (AV1 e AV2)
-├── src/                  → código-fonte do MVP (AV2)
-├── tests/                → testes e cenários de validação
-├── data/                 → dados utilizados e sua documentação
-├── assets/               → imagens, diagramas e capturas do protótipo
-└── .github/              → modelos de issues e pull requests
-```
-
-### Documentação (`docs/`)
-
-| Arquivo | Conteúdo | Avaliação principal |
-|---|---|---|
-| [01-problema.md](docs/01-problema.md) | Problema escolhido e sua delimitação | AV1 |
-| [02-investigacao-e-evidencias.md](docs/02-investigacao-e-evidencias.md) | Investigação, evidências, causas e consequências | AV1 |
-| [03-proposta-de-solucao.md](docs/03-proposta-de-solucao.md) | Proposta, público-alvo e funcionalidades | AV1 |
-| [04-requisitos.md](docs/04-requisitos.md) | Requisitos funcionais e não funcionais | AV1 |
-| [05-prototipo.md](docs/05-prototipo.md) | Protótipo navegável e telas | AV1 |
-| [06-arquitetura-e-tecnologias.md](docs/06-arquitetura-e-tecnologias.md) | Arquitetura e tecnologias justificadas | AV1 |
-| [07-planejamento-do-mvp.md](docs/07-planejamento-do-mvp.md) | Escopo do MVP e cronograma | AV1 |
-| [08-testes-e-validacao.md](docs/08-testes-e-validacao.md) | Testes, validação e métricas | AV2 |
-| [09-resultados-e-limitacoes.md](docs/09-resultados-e-limitacoes.md) | Resultados, limitações e trabalhos futuros | AV2 |
-| [checklist-av1.md](docs/checklist-av1.md) | Checklist de entrega da AV1 | AV1 |
-| [checklist-av2.md](docs/checklist-av2.md) | Checklist de entrega da AV2 | AV2 |
-
----
-
-# 1ª Avaliação — Projeto da Solução
-
-Na AV1, o grupo deverá demonstrar que **compreendeu o problema** e possui uma **proposta tecnicamente viável**.
-
-### Entregas da AV1
-
-1. BO escolhido;
-2. análise do problema;
-3. público afetado;
-4. evidências;
-5. proposta;
-6. funcionalidades;
-7. requisitos;
-8. protótipo navegável;
-9. arquitetura;
-10. tecnologias;
-11. escopo do MVP;
-12. planejamento.
-
-Os documentos de `docs/01` a `docs/07` concentram as entregas da AV1. Use o [checklist da AV1](docs/checklist-av1.md) para conferir a entrega.
-
-> **AV1 não é uma competição de quantidade de telas ou quantidade de funcionalidades.** Uma solução simples e coerente para um problema bem compreendido vale mais do que uma solução grande sem fundamentação.
-
----
-
-# 2ª Avaliação — MVP Funcional
-
-Na AV2, a pergunta passa a ser:
-
-**A solução funciona?**
-
-O grupo evolui **o mesmo repositório** da AV1 até chegar a um MVP funcional.
-
-### Entregas da AV2
-
-1. código-fonte (em [`src/`](src/));
-2. aplicação executável;
-3. fluxo principal funcionando;
-4. banco/dados, quando necessários;
-5. testes;
-6. documentação;
-7. validação;
-8. métricas;
-9. resultados;
-10. limitações;
-11. demonstração.
-
-Use o [checklist da AV2](docs/checklist-av2.md) para conferir a entrega.
-
-### O que NÃO é considerado MVP funcional
-
-Não será considerado MVP funcional apenas:
-
-- apresentação PowerPoint;
-- Canva;
-- wireframe;
-- Figma;
-- Penpot;
-- conjunto de imagens;
-- documentação;
-- telas estáticas sem comportamento.
-
-O MVP precisa possuir **pelo menos um fluxo principal funcional de ponta a ponta**. Exemplo genérico:
-
-```text
-Usuário
-   ↓
-envia informação
-   ↓
-sistema recebe
-   ↓
-processa
-   ↓
-armazena/consulta
-   ↓
-apresenta resultado
-```
-
-### Como executar o projeto
-
-> **Preencher na AV2.** Descreva aqui, passo a passo, como instalar as dependências e executar o MVP. Um avaliador que nunca viu o projeto deve conseguir executá-lo apenas seguindo estas instruções.
-
-**Pré-requisitos:**
-
--
-
-**Instalação:**
-
-```bash
-# comandos de instalação
-```
-
-**Execução:**
-
-```bash
-# comandos de execução
-```
-
-**Variáveis de ambiente (se houver):** documente-as em um arquivo `.env.example`, sem valores reais.
-
----
-
-## Versionamento das avaliações
-
-Ao concluir cada avaliação, o grupo deve criar uma **tag** (e, se desejar, uma **Release** no GitHub) que **congela exatamente aquilo que foi entregue**. O professor avaliará a versão correspondente à tag informada no [`ENTREGA.md`](ENTREGA.md).
-
-| Avaliação | Tag |
+| Camada | Tecnologia ou abordagem |
 |---|---|
-| 1ª Avaliação | `v1.0-av1` |
-| 2ª Avaliação | `v2.0-av2` |
+| Frontend | HTML, CSS e JavaScript |
+| Backend | Python |
+| Banco de dados | PostgreSQL |
+| Autenticação | JWT com controle de acesso por perfil |
+| Comunicação | API HTTP/REST |
+| Notificações | Serviço de e-mail e processamento em segundo plano, se incluído |
+| Hospedagem | A definir conforme os recursos do MVP |
 
-Procedimento (exemplo para a AV1):
+> As tecnologias acima descrevem o planejamento arquitetural da equipe, não uma implementação já concluída.
 
-```bash
-# garanta que tudo foi commitado e enviado
-git status
-git push origin main
+## Protótipo
 
-# crie a tag anotada e envie para o GitHub
-git tag -a v1.0-av1 -m "Entrega da 1ª Avaliação"
-git push origin v1.0-av1
-```
+[**Acessar o protótipo no Figma**](https://www.figma.com/design/3QOYNbl0Jwc72Y3NQvX92X/Untitled?node-id=0-1&t=af7AH4OgNlfhMWEu-1)
 
-Para a AV2, repita o procedimento com `v2.0-av2`.
+O fluxo navegável mínimo previsto é: **página inicial → busca com filtros → perfil do projeto → solicitação de contato → confirmação**.
 
-Opcionalmente, crie uma Release em **GitHub → Releases → Draft a new release**, selecionando a tag criada.
+## Documentação
 
-> Não altere nem recrie uma tag depois da entrega. Alterações posteriores devem ir para novos commits.
+Os arquivos disponíveis no repositório organizam as entregas e o planejamento do projeto:
 
----
+| Arquivo | Conteúdo |
+|---|---|
+| [01-problema.md](docs/01-problema.md) | Definição e delimitação do problema |
+| [02-investigacao-e-evidencias.md](docs/02-investigacao-e-evidencias.md) | Investigação e evidências |
+| [03-proposta-de-solucao.md](docs/03-proposta-de-solucao.md) | Proposta de solução e funcionalidades |
+| [04-requisitos.md](docs/04-requisitos.md) | Requisitos funcionais, não funcionais e critérios de aceite |
+| [05-arquitetura-e-tecnologias.md](docs/05-arquitetura-e-tecnologias.md) | Arquitetura e tecnologias previstas |
+| [06-planejamento-do-mvp.md](docs/06-planejamento-do-mvp.md) | Escopo e planejamento do MVP |
+| [checklist-av1.md](docs/checklist-av1.md) | Conferência da entrega AV1 |
+| [checklist-av2.md](docs/checklist-av2.md) | Conferência da entrega AV2 |
 
-## Segurança
+Outros arquivos importantes: [ENTREGA.md](ENTREGA.md), para identificação das versões entregues, e [CONTRIBUTING.md](CONTRIBUTING.md), para as regras de colaboração.
 
-**NUNCA** versione no repositório:
+## Avaliações e entregas
 
-- senhas;
-- tokens;
-- API keys;
-- credenciais;
-- arquivos `.env`;
-- dados pessoais sensíveis.
+### AV1 — Projeto da solução
 
-Se a aplicação precisar de variáveis de ambiente, crie um arquivo **`.env.example`** apenas com os **nomes** das variáveis e valores fictícios. **Nunca coloque valores reais nele.**
+A primeira avaliação contempla a investigação do problema, a proposta de solução, os requisitos, o protótipo, a arquitetura e o planejamento do MVP.
 
-Mais orientações em [`CONTRIBUTING.md`](CONTRIBUTING.md) e [`data/README.md`](data/README.md).
+- **Status no documento acadêmico:** em andamento.
+- **Tag prevista para a entrega:** `v1.0-av1`.
+- **Checklist:** [docs/checklist-av1.md](docs/checklist-av1.md).
 
----
+### AV2 — MVP funcional
 
-## Colaboração
+Na segunda avaliação, a equipe deverá implementar e validar pelo menos um fluxo principal funcional de ponta a ponta, incluindo o registro de solicitações de contato no banco de dados.
 
-Todos os integrantes devem realizar **contribuições reais** ao repositório. Consulte o [`CONTRIBUTING.md`](CONTRIBUTING.md) para o padrão de commits, uso de issues e pull requests.
+- **Status no documento acadêmico:** não iniciada.
+- **Tag prevista para a entrega:** `v2.0-av2`.
+- **Checklist:** [docs/checklist-av2.md](docs/checklist-av2.md).
+
+### Como executar
+
+As instruções de instalação, variáveis de ambiente e execução serão adicionadas quando a implementação do MVP estiver definida e disponível na AV2. **O protótipo e a documentação não substituem a aplicação funcional.**
+
+### Versionamento das avaliações
+
+A equipe deverá registrar em [ENTREGA.md](ENTREGA.md) a tag/release correspondente a cada avaliação. As tags só devem ser criadas após a revisão e consolidação das alterações na branch principal, seguindo o procedimento do professor.
+
+## Colaboração e segurança
+
+Todos os integrantes devem contribuir para o repositório utilizando suas próprias contas. As mudanças devem ser registradas em commits descritivos, preferencialmente em branches, com Pull Requests revisados pela equipe. Consulte [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Não devem ser publicados senhas, tokens, chaves de API, credenciais, arquivos `.env` com valores reais nem dados pessoais sensíveis.
 
 ## Licença
 
-Este projeto é distribuído sob a licença MIT. Consulte o arquivo [`LICENSE`](LICENSE).
-
-
-## Projeto Integrador — Banco de Oportunidades do Recife
-
-  1. Criem o repositório do grupo a partir do modelo: abram https://github.com/jamcabral/template-bo-recife e cliquem em Use this template → Create a new repository. Um integrante cria o repositório e adiciona os demais como colaboradores
-     (Settings → Collaborators).
-  2. Padrão do nome: bo-recife-grupoXX-nome-projeto (ex.: bo-recife-grupo03-agenda-saude).
-  3. Clonem o repositório de vocês:
-  git clone URL_DO_REPOSITORIO_DO_GRUPO
-  cd bo-recife-grupoXX-nome-projeto
-     Não enviem nada para o repositório-base do professor.
-  4. AV1 = documentação + protótipo: escolham um desafio em https://bancodeoportunidades.recife.pe.gov.br/, investiguem o problema com evidências e preencham o README e os arquivos docs/01 a docs/07. A entrega inclui um protótipo
-     navegável com link público (Figma ou Penpot). Confiram o docs/checklist-av1.md e entreguem com a tag v1.0-av1.
-  5. AV2 = o mesmo repositório evoluído para o MVP funcional: código em src/, pelo menos um fluxo principal funcionando de ponta a ponta, testes, validação com 3 métricas, resultados e limitações. Confiram o docs/checklist-av2.md e
-     entreguem com a tag v2.0-av2.
-
-  Façam commits pequenos e frequentes, cada um com a própria conta. O histórico conta como evidência de participação.
+Este projeto está distribuído sob a licença MIT. Consulte [LICENSE](LICENSE).
