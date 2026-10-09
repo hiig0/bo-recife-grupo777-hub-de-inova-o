@@ -38,9 +38,10 @@ Se o prazo permitir, serão incluídos indicadores básicos (F08) e notificaçõ
 - CI/CD avançado e testes de resiliência.
 - Perfil de Instituição com tela própria (as instituições serão cadastradas pela equipe).
 
+
 ## Fluxo mínimo que deverá funcionar
 
-\`\`\`text
+```text
 Pesquisador cadastra projeto
     ↓
 Curador aprova e publica
@@ -52,7 +53,8 @@ Solicita contato
 Pedido gravado no PostgreSQL
     ↓
 Pedido registrado e disponível para o pesquisador responsável
-\`\`\`
+```
+
 
 ## Funcionalidades por avaliação
 
@@ -82,14 +84,15 @@ Pedido registrado e disponível para o pesquisador responsável
 
 ## Cronograma
 
+
 | Etapa | Responsável | Situação |
 |---|---|---|
 | Escolha do BO e investigação | Arnaldo Reis | Concluído |
-| Proposta e requisitos | Carla Rayanne | Concluído |
+| Proposta e requisitos | Higor Ricardo | Concluído |
 | Protótipo navegável | Gustavo Lopes | Concluído |
-| Arquitetura e planejamento | Grupo | Em andamento |
+| Arquitetura e planejamento | Carla Rayanne | Concluído |
 | Entrega da AV1 | Higor Ricardo | Não iniciado |
 | Modelagem do banco e API | Arnaldo Reis | Não iniciado |
-| Frontend e fluxo mínimo | Grupo | Não iniciado |
+| Frontend e fluxo mínimo | Emilly Mayra | Não iniciado |
 | Testes e validação | Arnaldo Reis | Não iniciado |
 | Entrega da AV2 | Higor Ricardo | Não iniciado |
