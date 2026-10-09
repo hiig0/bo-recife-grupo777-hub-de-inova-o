@@ -1,12 +1,5 @@
 # 06 — Arquitetura e Tecnologias
 
-> **Objetivo deste documento:** descrever como a solução será organizada tecnicamente e justificar as tecnologias escolhidas.
->
-> **Avaliação:** AV1 (atualizar na AV2)
->
-> **Não existe uma stack obrigatória.** Cada grupo pode escolher as tecnologias adequadas ao seu projeto. O importante é **justificar** a escolha e garantir que a equipe consegue entregar o MVP com ela.
-
----
 
 ## Arquitetura
 
