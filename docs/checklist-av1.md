@@ -1,32 +1,33 @@
+
 # Checklist — 1ª Avaliação (Projeto da Solução)
 
 > Marque cada item com `[x]` quando estiver concluído. Antes de entregar, crie a tag `v1.0-av1` e preencha o [`ENTREGA.md`](../ENTREGA.md).
 
 ## Problema e investigação
 
-- [ ] BO escolhido.
-- [ ] Link do BO informado.
-- [ ] Problema descrito, Público afetado identificado.
-- [ ] Causas analisadas, Consequências analisadas.
-- [ ] Soluções existentes pesquisadas.
+- [x] BO escolhido.
+- [x] Link do BO informado.
+- [x] Problema descrito, Público afetado identificado.
+- [x] Causas analisadas, Consequências analisadas.
+- [x] Soluções existentes pesquisadas.
 
 ## Proposta e requisitos
 
-- [ ] Proposta da equipe documentada
-- [ ] Funcionalidades definidas
+- [x] Proposta da equipe documentada.
+- [x] Funcionalidades definidas.
 
 ## Protótipo e arquitetura
 
-- [ ] Arquitetura inicial
-- [ ] Tecnologias justificadas
+- [x] Arquitetura inicial.
+- [x] Tecnologias justificadas.
 
 ## MVP e organização
 
-- [ ] Escopo do MVP definido, README preenchido
+- [x] Escopo do MVP definido, README preenchido.
 
 ## Entrega
 
-- [ ] `ENTREGA.md` preenchido
+- [ ] `ENTREGA.md` preenchido.
 
 ## Documentos relacionados
 
