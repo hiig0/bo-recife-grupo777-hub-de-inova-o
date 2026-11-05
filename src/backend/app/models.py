@@ -38,9 +38,11 @@ class Projeto(Base):
 
     id = Column("id", Integer, primary_key=True, autoincrement=True)
     categoria = Column("categoria", String) #educaçao, saude, meio-ambiente, mobilidade urbana
+    descricao = Column("descricao", String)
     usuario = Column ("usuario", ForeignKey("usuarios.id"))
 
-    def __init__(self, usuario, categoria="SAUDE"):
+    def __init__(self, usuario, descricao, categoria="SAUDE"):
         self.usuario = usuario
+        self.descricao = descricao
         self.categoria = categoria
     
