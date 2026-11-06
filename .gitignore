@@ -83,3 +83,9 @@ CLAUDE.local.md
 # ==========================================
 *.sqlite3
 *.db
+
+# ==========================================
+# Alembic / Configurações locais de banco
+# ==========================================
+src/backend/alembic/env.py
+**/alembic/env.py

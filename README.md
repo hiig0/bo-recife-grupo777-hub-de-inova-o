@@ -139,9 +139,264 @@ Na segunda avaliação, a equipe deverá implementar e validar pelo menos um flu
 - **Tag prevista para a entrega:** `v2.0-av2`.
 - **Checklist:** [docs/checklist-av2.md](docs/checklist-av2.md).
 
-### Como executar
+### Como executar o projeto
 
-As instruções de instalação, variáveis de ambiente e execução serão adicionadas quando a implementação do MVP estiver definida e disponível na AV2. **O protótipo e a documentação não substituem a aplicação funcional.**
+As instruções abaixo executam o backend atualmente disponível em
+`src/backend`. O frontend ainda não possui uma aplicação executável separada
+neste repositório.
+
+#### Pré-requisitos
+
+- Git;
+- Python 3.14 ou superior (o ambiente atualmente validado usa Python 3.14.6);
+- PowerShell no Windows ou um terminal compatível no Linux/macOS.
+
+#### 1. Obter o projeto
+
+Caso o projeto ainda não esteja no computador:
+
+```bash
+git clone URL_DO_REPOSITORIO
+cd bo-recife-grupo777-hub-de-inova-o
+```
+
+Substitua `URL_DO_REPOSITORIO` pela URL do repositório.
+
+#### 2. Entrar na pasta do backend
+
+```bash
+cd src/backend
+```
+
+Todos os comandos de Alembic devem ser executados nessa pasta, pois o arquivo
+`alembic.ini` e o diretório `alembic` ficam nela.
+
+#### 3. Criar e ativar o ambiente virtual
+
+No Windows PowerShell:
+
+```powershell
+py -3.14 -m venv venv
+.\venv\Scripts\Activate.ps1
+```
+
+No Windows usando o Prompt de Comando:
+
+```bat
+py -3.14 -m venv venv
+venv\Scripts\activate.bat
+```
+
+No Linux/macOS:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+Se o PowerShell bloquear a ativação, execute uma vez:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
+
+Também é possível executar os comandos usando diretamente
+`venv\Scripts\python.exe`, sem ativar o ambiente.
+
+#### 4. Instalar as dependências
+
+Com o ambiente virtual ativado:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+#### 5. Configurar variáveis de ambiente
+
+Não há variáveis obrigatórias para iniciar a aplicação atualmente. A variável
+`SECRET_KEY` já é lida pelo backend e deve ser definida antes de usar recursos
+de autenticação que dependam dela:
+
+No Windows PowerShell:
+
+```powershell
+$env:SECRET_KEY = "substitua-por-uma-chave-segura"
+```
+
+No Linux/macOS:
+
+```bash
+export SECRET_KEY="substitua-por-uma-chave-segura"
+```
+
+Não versione arquivos `.env` com valores reais. Para tornar a configuração
+persistente, crie um arquivo `.env` dentro de `src/backend` e mantenha-o
+apenas localmente.
+
+#### 6. Configurar e executar as migrações do banco
+
+O projeto usa o **Alembic** para controlar a estrutura do banco de dados e
+usa **SQLite** por padrão. O arquivo do banco será criado em
+`src/backend/banco.db` quando a primeira migração for aplicada.
+
+A configuração do Alembic está em `src/backend/alembic.ini`, o ambiente de
+execução está em `src/backend/alembic/env.py` e os arquivos de migração ficam
+em `src/backend/alembic/versions`.
+
+##### Aplicar todas as migrações
+
+Execute dentro de `src/backend`, com a virtualenv ativada:
+
+```bash
+python -m alembic upgrade head
+```
+
+Esse comando cria as tabelas `usuarios` e `projetos` e aplica todas as
+alterações registradas até a versão mais recente.
+
+##### Conferir a versão aplicada
+
+```bash
+python -m alembic current
+```
+
+Para listar o histórico completo:
+
+```bash
+python -m alembic history
+```
+
+Para verificar se existem alterações nos modelos que ainda não foram
+registradas em uma migração:
+
+```bash
+python -m alembic check
+```
+
+O comando `check` deve ser executado depois de `upgrade head`. Se aparecer
+`Target database is not up to date`, aplique primeiro:
+
+```bash
+python -m alembic upgrade head
+```
+
+##### Criar uma nova migração
+
+Depois de alterar os modelos em `src/backend/app/models.py`, gere uma revisão
+com uma mensagem descritiva:
+
+```bash
+python -m alembic revision --autogenerate -m "descrever alteracao do banco"
+```
+
+Revise o arquivo gerado em `src/backend/alembic/versions` antes de aplicá-lo.
+O Alembic pode não identificar corretamente todas as alterações, por isso a
+migração deve ser conferida manualmente.
+
+Depois da revisão:
+
+```bash
+python -m alembic upgrade head
+python -m alembic check
+```
+
+##### Reverter uma migração
+
+Para voltar uma versão:
+
+```bash
+python -m alembic downgrade -1
+```
+
+Para voltar o banco ao estado inicial, antes da primeira migração:
+
+```bash
+python -m alembic downgrade base
+```
+
+Use `downgrade` com cuidado, pois ele pode remover tabelas ou colunas e causar
+perda de dados.
+
+##### Migrações existentes
+
+Atualmente, o projeto possui:
+
+| Revisão | Descrição |
+|---|---|
+| `fc4d5b8ee310` | Criação inicial das tabelas `usuarios` e `projetos` |
+| `3eda222e4e8f` | Adição da coluna `descricao` em `projetos` |
+
+O arquivo `banco.db` é local e não deve ser commitado. Para reconstruir um
+banco local do zero, remova somente o arquivo `src/backend/banco.db` e execute
+novamente `python -m alembic upgrade head`.
+
+#### 7. Iniciar a API
+
+Ainda dentro de `src/backend`, com a virtualenv ativada:
+
+```bash
+python -m uvicorn app.main:app --reload
+```
+
+Depois, acesse:
+
+- API: <http://127.0.0.1:8000>
+- Documentação Swagger: <http://127.0.0.1:8000/docs>
+- Documentação ReDoc: <http://127.0.0.1:8000/redoc>
+
+Para parar o servidor, pressione `Ctrl+C`.
+
+#### 8. Rotas disponíveis atualmente
+
+| Método | Rota | Finalidade |
+|---|---|---|
+| GET | `/auth/` | Verifica a rota de autenticação |
+| POST | `/auth/criar_conta` | Cria uma conta de usuário |
+| GET | `/projetos/` | Verifica a rota de projetos |
+| POST | `/projetos/projeto` | Cria um projeto |
+
+Exemplo de requisição para criação de usuário:
+
+```json
+{
+  "nome": "Usuário de teste",
+  "email": "teste@example.com",
+  "senha": "senha-segura",
+  "ativo": true,
+  "admin": false
+}
+```
+
+#### 9. Verificações rápidas
+
+Com a virtualenv ativada:
+
+```bash
+python -m compileall app alembic
+python -m alembic check
+```
+
+O comando `alembic check` deve ser executado depois de
+`python -m alembic upgrade head`. Se o banco ainda não estiver atualizado,
+execute novamente o comando de upgrade.
+
+#### Solução de problemas
+
+- **`Import could not be resolved` no VS Code:** selecione o interpretador
+  `src/backend/venv/Scripts/python.exe` pela opção
+  `Python: Select Interpreter`.
+- **`No module named ...`:** confirme que a virtualenv está ativa e execute
+  novamente `python -m pip install -r requirements.txt`.
+- **`Target database is not up to date`:** execute
+  `python -m alembic upgrade head` dentro de `src/backend`.
+- **`alembic.ini` não encontrado:** confirme que o terminal está em
+  `src/backend`.
+- **Porta 8000 ocupada:** inicie com outra porta, por exemplo:
+  `python -m uvicorn app.main:app --reload --port 8001`.
+- **PowerShell não permite ativar a virtualenv:** use a política
+  `Set-ExecutionPolicy` indicada na seção de instalação ou execute diretamente
+  `venv\Scripts\python.exe`.
 
 ### Versionamento das avaliações
 
