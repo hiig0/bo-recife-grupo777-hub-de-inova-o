@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from .dependencies import pegar_sessao
-from schemas import ProjetoSchema
+from .schemas import ProjetoSchema
 from .models import Projeto
 
 
@@ -19,9 +19,13 @@ async def projetos():
         "autenticado": False,
     }
 
-@projects_router.post("/projeto")
-async def criar_pedido(projeto_schema: ProjetoSchema, session: Session = Depends(pegar_sessao)):
-    novo_projeto = Projeto(usuario=ProjetoSchema.id_usuario, projeto_schema.descricao)
+@projects_router.post("/criar_projeto")
+async def criar_projeto(projeto_schema: ProjetoSchema, session: Session = Depends(pegar_sessao)):
+    novo_projeto = Projeto(
+        usuario=projeto_schema.usuario,
+        descricao=projeto_schema.descricao,
+        categoria=projeto_schema.categoria
+    )
     session.add(novo_projeto)
     session.commit()
     return{"mensagem": "Projeto criado com sucesso!"}
