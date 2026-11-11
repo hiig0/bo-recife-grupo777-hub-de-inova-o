@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from .dependencies import pegar_sessao
+from .dependencies import pegar_sessao, verificar_token
 from .models import Usuario
 from .security import bcrypt_context, ALGORITHOM, ACESS_TOKEN_EXPIRE_MINUTES, SECRET_KEY
 from .schemas import UsuarioSchema, LoginSchema
@@ -17,10 +17,6 @@ def criar_token(id_usuario, duracao_token=timedelta(minutes=ACESS_TOKEN_EXPIRE_M
     dic_info = {"user_id": id_usuario, "exp": data_expiracao }
     jwt_codificado = jwt.encode(dic_info, SECRET_KEY, ALGORITHOM)
     return jwt_codificado
-
-def verificar_token(token, session: Session = Depends(pegar_sessao)):
-    usuario = session.query(Usuario).filter(Usuario.id==1).first()
-    return usuario
 
 def autenticar_usuario(email, senha, session):
     usuario = session.query(Usuario).filter(Usuario.email==email).first()
@@ -77,9 +73,7 @@ async def login(login_schema:LoginSchema, session: Session = Depends(pegar_sessa
         }
     
 @auth_router.get("/refresh")
-async def use_refresh_token(token):
-    #verificar token
-    usuario = verificar_token(token)
+async def use_refresh_token(usuario: Usuario = Depends(verificar_token)):
     acess_token = criar_token(usuario.id)
     return {
             "acess_token": acess_token,
