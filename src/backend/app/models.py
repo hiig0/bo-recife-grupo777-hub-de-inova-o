@@ -19,13 +19,15 @@ class Usuario(Base):
     senha = Column ("senha", String)
     ativo = Column ("ativo", Boolean)
     admin = Column ("admin", Boolean, default=False)
+    curador = Column ("curador", Boolean, default=False)
 
-    def __init__(self, nome, email, senha, ativo=True, admin=False):
-        self.nome = nome
+    def __init__(self, nome, email, senha, ativo=True, admin=False, curador=False ):
+        self.nome = nome 
         self.email = email
         self.senha = senha
         self.ativo = ativo
         self.admin = admin
+        self.curador = curador
 
 class Projeto(Base):
     __tablename__ = "projetos"
@@ -40,11 +42,13 @@ class Projeto(Base):
     categoria = Column("categoria", String) #educaçao, saude, meio-ambiente, mobilidade urbana
     descricao = Column("descricao", String)
     usuario = Column ("usuario", ForeignKey("usuarios.id"))
+    
 
-    def __init__(self, usuario, descricao, categoria):
+    def __init__(self, usuario, descricao, categoria,):
         self.usuario = usuario
         self.descricao = descricao
         self.categoria = categoria
+        
 
 
     

@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from .dependencies import pegar_sessao, verificar_token
+from .dependencies import pegar_sessao, verificar_refresh_token
 from .models import Usuario
 from .security import bcrypt_context, ALGORITHOM, ACESS_TOKEN_EXPIRE_MINUTES, SECRET_KEY
 from .schemas import UsuarioSchema, LoginSchema
@@ -13,9 +13,13 @@ from fastapi.security import OAuth2PasswordRequestForm
 auth_router = APIRouter(prefix="/auth", tags=["auth"])
 
 
-def criar_token(id_usuario, duracao_token=timedelta(minutes=ACESS_TOKEN_EXPIRE_MINUTES)):
+def criar_token(
+    id_usuario,
+    duracao_token=timedelta(minutes=ACESS_TOKEN_EXPIRE_MINUTES),
+    tipo_token="access",
+):
     data_expiracao = datetime.now(timezone.utc) + duracao_token
-    dic_info = {"sub": str (id_usuario), "exp": data_expiracao }
+    dic_info = {"sub": str(id_usuario), "exp": data_expiracao, "type": tipo_token}
     jwt_codificado = jwt.encode(dic_info, SECRET_KEY, ALGORITHOM)
     return jwt_codificado
 
@@ -44,10 +48,7 @@ async def home():
 async def criar_conta(usuario_schema:UsuarioSchema, session = Depends(pegar_sessao)):
     usuario= session.query(Usuario).filter(Usuario.email==usuario_schema.email).first()
     if usuario:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Já existe um usuário com este e-mail.",
-        )
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,detail="Já existe um usuário com este e-mail.")
 
     else:
         senha_criptografada = bcrypt_context.hash(usuario_schema.senha)
@@ -60,16 +61,18 @@ async def criar_conta(usuario_schema:UsuarioSchema, session = Depends(pegar_sess
 async def login(login_schema:LoginSchema, session: Session = Depends(pegar_sessao)):
     usuario = autenticar_usuario(login_schema.email, login_schema.senha, session)
     if not usuario:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Nenhum usuário encontrado ou credenciais inválidas .",)
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,detail="Nenhum usuário encontrado ou credenciais inválidas .",)
     else:
         acess_token = criar_token(usuario.id)
-        refresh_token = criar_token(usuario.id, duracao_token=timedelta(days=7))
+        refresh_token = criar_token(
+            usuario.id,
+            duracao_token=timedelta(days=7),
+            tipo_token="refresh",
+        )
         return {
-            "acess_token": acess_token,
+            "access_token": acess_token,
             "refresh_token": refresh_token,
-            "token_type": "Bearer"
+            "token_type": "bearer",
         }
 
     
@@ -77,23 +80,21 @@ async def login(login_schema:LoginSchema, session: Session = Depends(pegar_sessa
 async def login_form( dados_formulario:OAuth2PasswordRequestForm = Depends(), session: Session = Depends(pegar_sessao)):
     usuario = autenticar_usuario(dados_formulario.username, dados_formulario.password, session)
     if not usuario:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Nenhum usuário encontrado ou credenciais inválidas .",)
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,detail="Nenhum usuário encontrado ou credenciais inválidas .",)
     else:
         acess_token = criar_token(usuario.id)
         return {
-            "acess_token": acess_token,
-            "token_type": "Bearer"
+            "access_token": acess_token,
+            "token_type": "bearer",
         }
     
 @auth_router.get("/refresh")
-async def use_refresh_token(usuario: Usuario = Depends(verificar_token)):
+async def use_refresh_token(usuario: Usuario = Depends(verificar_refresh_token)):
     acess_token = criar_token(usuario.id)
     return {
-            "acess_token": acess_token,
-            "token_type": "Bearer"
-            }
+        "access_token": acess_token,
+        "token_type": "bearer",
+    }
         
 
 

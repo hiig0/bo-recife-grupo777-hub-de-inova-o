@@ -1,8 +1,8 @@
-"""nova versão
+"""add a coluna curador
 
-Revision ID: 5c972e0e440f
+Revision ID: 80b034d4917d
 Revises: 
-Create Date: 2026-11-06 10:10:45.698642
+Create Date: 2026-11-13 11:39:39.560835
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '5c972e0e440f'
+revision: str = '80b034d4917d'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -28,6 +28,7 @@ def upgrade() -> None:
     sa.Column('senha', sa.String(), nullable=True),
     sa.Column('ativo', sa.Boolean(), nullable=True),
     sa.Column('admin', sa.Boolean(), nullable=True),
+    sa.Column('curador', sa.Boolean(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('projetos',

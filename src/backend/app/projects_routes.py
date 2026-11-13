@@ -1,12 +1,12 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from .dependencies import pegar_sessao
+from .dependencies import pegar_sessao, verificar_token
 from .schemas import ProjetoSchema
-from .models import Projeto
+from .models import Projeto, Usuario
 
 
 
-projects_router = APIRouter(prefix="/projetos", tags=["projetos"])
+projects_router = APIRouter(prefix="/projetos", tags=["projetos"], dependencies=[Depends(verificar_token)])
 
 
 @projects_router.get("/")
@@ -29,3 +29,17 @@ async def criar_projeto(projeto_schema: ProjetoSchema, session: Session = Depend
     session.add(novo_projeto)
     session.commit()
     return{"mensagem": "Projeto criado com sucesso!"}
+
+@projects_router.post("/projeto/cancelar/{id_projeto}")
+async def cancelar_projeto(id_projeto: int, session: Session = Depends(pegar_sessao), usuario: Usuario = Depends(pegar_sessao)):
+    projeto = session.query(Projeto).filter(Projeto.id==id_projeto).first()
+    if not projeto:
+        raise HTTPException(status_code=400,detail="Projeto não encontrado")
+    if not usuario.admin and usuario.id != projeto.usuario:
+        raise  HTTPException(status_code=401, detail="Você não tem autorização para fazer essa modificação")
+    session.commit()
+    return {
+        "mensagem": f"Projeto número: {id_projeto} cancelado com sucesso!",
+        "projeto": projeto
+    }
+    

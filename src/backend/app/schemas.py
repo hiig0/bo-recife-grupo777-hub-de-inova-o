@@ -7,6 +7,7 @@ class UsuarioSchema(BaseModel):
     senha: str
     ativo: Optional[bool]
     admin: Optional[bool]
+    curador: Optional[bool]
 
     @field_validator("senha")
     @classmethod
@@ -21,7 +22,8 @@ class Config:
 class ProjetoSchema(BaseModel):
     usuario: int
     descricao: str
-    categoria: Optional[str] = "SAUDE"
+    categoria: str
+    
 
 class Config:
     from_attributes = True
